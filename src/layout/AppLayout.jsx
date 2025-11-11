@@ -5,10 +5,17 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 const AppLayout = () => {
   const [toggle, setToggle] = useState(false);
+  const [keyword, setKeyword] = useState('');
+  const navigate = useNavigate();
+  
+  const searchByKeyword = (e) => {
+    e.preventDefault();
+    navigate(`/movies?q=${keyword}`);
+  };
   return (
     <div>
     <div className='navbar'>
@@ -39,12 +46,14 @@ const AppLayout = () => {
               <Nav.Link href="/" style={{ color: "white", marginBottom: toggle ? '10px' : '0' }} >Home</Nav.Link>
               <Nav.Link href="/movies" style={{ color: "white", marginBottom: toggle ? '10px' : '0' }}>Movies</Nav.Link>
             </Nav>
-            <Form className="d-flex" style={{ marginBottom: toggle ? '10px' : '0' }}>
+            <Form className="d-flex" onSubmit={searchByKeyword} style={{ marginBottom: toggle ? '10px' : '0' }}>
               <Form.Control
                 type="search"
                 placeholder="Search"
                 className="me-2 search-input"
                 aria-label="Search"
+                value={keyword}
+                onChange={(e) => setKeyword(e.target.value)}
                 style={{ backgroundColor: 'grey'}}
               />
               <Button variant="outline-danger" type="submit">Search</Button>

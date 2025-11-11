@@ -1,0 +1,27 @@
+.pagination {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+}
+
+.r-page-link {
+    background-color: #000;
+    border: none;
+    color: red;
+    display: block;
+    font-size: .8rem;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.active>.r-page-link, .r-page-link:hover
+ {
+    background: red;
+    color: #fff;
+}
