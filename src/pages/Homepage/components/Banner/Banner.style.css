@@ -4,6 +4,7 @@
     background-position: left;
     background-repeat: no-repeat;
     background-size: cover;
+  
 }
 .banner:before {
     content: '';
@@ -23,6 +24,12 @@
     padding: 20px;
 }
 
+.banner-text-area button
+ {
+    max-width: 200px;
+    width: 50%;
+ }
+ 
 .banner-text-area > * {
     z-index: 2;
 }

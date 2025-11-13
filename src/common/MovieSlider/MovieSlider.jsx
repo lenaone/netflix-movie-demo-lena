@@ -3,6 +3,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieSlider.style.css";
+import { Link } from "react-router-dom";
+import MovieDetailPage from "../../pages/MovieDetails/MovieDetailPage";
 
 const MovieSlider = ({ title, movies, responsive }) => {
   return (
@@ -16,7 +18,10 @@ const MovieSlider = ({ title, movies, responsive }) => {
         responsive={responsive}
       >
         {movies.map((movie, index) => (
-          <MovieCard movie={movie} key={index} />
+          <MovieCard
+            movie={movie}
+            key={index}
+          />
         ))}
       </Carousel>
     </div>

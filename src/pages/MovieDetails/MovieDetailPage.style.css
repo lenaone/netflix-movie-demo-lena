@@ -1,0 +1,34 @@
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.movie-badge {
+    background-color: red !important;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px 12px;
+    
+}
+
+.movie-title {
+    font-size: 65px;
+}
+
+.movie-detail-badge {
+    background-color: red;
+    border-radius: 15px;
+    font-size: 15px;
+    padding: 6px 10px;
+    text-align: center;
+    width: 120px;
+}
+
+@media (max-width: 767.98px) {
+  .mt-mobile {
+    margin-top: 3rem !important;
+  }
+}

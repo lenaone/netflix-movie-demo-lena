@@ -3,6 +3,7 @@ import { usePopularMoviesQuery } from "../../../../hooks/usePopularMovies";
 import Alert from "react-bootstrap/Alert";
 import MovieSlider from "../../../../common/MovieSlider/MovieSlider";
 import { responsive } from "../../../../constants/responsive";
+import MovieDetailPage from "../../../MovieDetails/MovieDetailPage";
 
 const PopularMovieSlide = () => {
   const { data, isLoading, isError, error } = usePopularMoviesQuery();

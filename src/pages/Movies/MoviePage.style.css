@@ -9,6 +9,10 @@
     width: 100%;
 }
 
+.dropdown-popularity-genre {
+    padding-left: 43px;
+}
+
 .r-page-link {
     background-color: #000;
     border: none;

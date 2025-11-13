@@ -1,0 +1,30 @@
+.review-box {
+    border: 2px solid red;
+    border-radius: 20px;
+    box-shadow: 0 50px 100px -20px #32325d40, 0 30px 60px -30px #0000004d, inset 0 -2px 6px 0 #0a254059;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+.fold {
+    max-height: 100px;
+}
+
+.expanded {
+    max-height: none;
+}
+
+.text-box {
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height .3s ease-in-out;
+}
+
+.more-button {
+    background: none;
+    border: none;
+    color: #d3d3d3;
+    font-weight: 700;
+    text-decoration: underline;
+}
+

@@ -4,7 +4,6 @@ import PopularMovieSlide from './components/PopularMovieSlide/PopularMovieSlide'
 import TopRatedMovieSlide from './components/TopRatedMovieSlide/TopRatedMovieSlide'
 import UpcomingMovieSlide from './components/UpcomingMovieSlide/UpcomingMovieSlide'
 
-//1. banner -> popular movvies - first item
 const Homepage = () => {
   return (
     <>
