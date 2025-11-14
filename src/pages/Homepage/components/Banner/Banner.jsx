@@ -21,17 +21,12 @@ const Banner = ({ movieData }) => {
 
   useEffect(() => {
     if (Array.isArray(trailerData?.results) && trailerData.results.length > 0 && trailerData.results[0]?.key) {
-      console.log("trailerData key", trailerData.results[0].key);
       setTrailerKey(trailerData.results[0].key);
     } else {
-      console.log("No trailer available for this movie.");
       setTrailerKey(null);
     }
   }, [trailerData]);
 
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
   if (isError) {
     return <Alert variant="danger">{error.message}</Alert>;
   }

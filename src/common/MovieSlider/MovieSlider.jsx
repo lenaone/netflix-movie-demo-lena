@@ -3,8 +3,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieSlider.style.css";
-import { Link } from "react-router-dom";
-import MovieDetailPage from "../../pages/MovieDetails/MovieDetailPage";
 
 const MovieSlider = ({ title, movies, responsive }) => {
   return (

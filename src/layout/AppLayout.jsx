@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Outlet, useNavigate } from 'react-router-dom';
+import LoadingSpinner from '../common/LoadingSpinner/LoadingSpinner';
 
 const AppLayout = () => {
   const [toggle, setToggle] = useState(false);
@@ -62,10 +63,9 @@ const AppLayout = () => {
         </Container>
       </Navbar>
       </div>
-      <div>
-   <Outlet />
-      </div>
-   
+    <div>
+    <Outlet />
+    </div>
     </div>
   );
 }

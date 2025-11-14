@@ -10,6 +10,7 @@ export const useTopRatedMoviesQuery = () => {
   return useQuery({
     queryKey: ["top_rated-movies"],
     queryFn: fetchTopRatedMovies,
+    suspense: true,
     select: (result) => result.data,
   });
 };

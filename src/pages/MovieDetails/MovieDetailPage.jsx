@@ -7,10 +7,11 @@ import { useMovieTrailerQuery } from '../../hooks/useMovieTrailer';
 import MovieSlider from '../../common/MovieSlider/MovieSlider';
 import { responsive } from "../../constants/responsive";
 import Banner from '../Homepage/components/Banner/Banner';
-import Alert from 'react-bootstrap/Alert';
+import ErrorMessage from '../../common/ErrorMessage/ErrorMessage';
 import { Container, Row, Col, Badge, Button } from 'react-bootstrap';
 import './MovieDetailPage.style.css';
 import ReviewBox from '../ReviewBox/ReviewBox';
+import LoadingSpinner from '../../common/LoadingSpinner/LoadingSpinner';
 
 const MovieDetailPage = () => {
   const { id } = useParams();
@@ -21,8 +22,13 @@ const MovieDetailPage = () => {
     window.scrollTo(0, 0); // Scroll to top on movie change
   }, [id]);
 
-  if (isLoading) return <h1>Loading...</h1>;
-  if (isError) return <Alert variant="danger">{error.message}</Alert>;
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
+  if (isError) {
+    return <ErrorMessage message={error?.message} />;
+  }
 
   return (
     <div>

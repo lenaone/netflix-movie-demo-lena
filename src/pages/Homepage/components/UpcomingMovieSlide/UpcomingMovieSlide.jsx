@@ -1,17 +1,14 @@
 import React from "react";
-import Alert from "react-bootstrap/Alert";
 import { useUpcomingMoviesQuery } from "../../../../hooks/useUpcomingMovies";
 import MovieSlider from "../../../../common/MovieSlider/MovieSlider";
+import ErrorMessage from '../../../../common/ErrorMessage/ErrorMessage';
 import { responsive } from "../../../../constants/responsive";
 
 const UpcomingMovieSlide = () => {
   const { data, isLoading, isError, error } = useUpcomingMoviesQuery();
 
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
-  if (isError) {
-    return <Alert variant="danger">{error.message}</Alert>;
+   if (isError) {
+    return <ErrorMessage message={error?.message} />;
   }
   return (
     <div>

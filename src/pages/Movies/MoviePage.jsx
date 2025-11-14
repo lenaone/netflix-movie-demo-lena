@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom';
 import { useSearchMovieQuery } from '../../hooks/useSearchMovie';
 import { useMovieGenresQuery } from '../../hooks/useMovieGenres';
-import Alert from 'react-bootstrap/Alert';
+import ErrorMessage from '../../common/ErrorMessage/ErrorMessage';
+import LoadingSpinner from '../../common/LoadingSpinner/LoadingSpinner';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Col, Row, Container } from 'react-bootstrap';
 import MovieCard from '../../common/MovieCard/MovieCard';
@@ -22,8 +23,14 @@ const MoviePage = () => {
 
   const { data, isLoading, isError, error } = useSearchMovieQuery({ keyword, page });
   const { data: genresData } = useMovieGenresQuery();
-  console.log("data", data);
-  console.log("genresData", genresData);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
+  if (isError) {
+    return <ErrorMessage message={error?.message} />;
+  }
 
   const handlePageClick = (selectedPage) => {
     setPage(selectedPage.selected + 1);
@@ -45,15 +52,6 @@ const handleSortByPopularity = (order) => {
 };
 
 const moviesToRender = sortOrder.length > 0 ? sortOrder : filteredMovies;
-
-
-console.log("filteredMovies",  data?.results[0].popularity);
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
-  if (isError) {
-    return <Alert variant="danger">{error.message}</Alert>;
-  }
 
   return (
     <Container className="mt-4" >
@@ -117,7 +115,7 @@ console.log("filteredMovies",  data?.results[0].popularity);
         breakLabel="..."
         breakClassName="page-item"
         breakLinkClassName="r-page-link"
-        pageCount={data?.total_pages}
+        pageCount={data?.total_pages > 500 ? 500 : data?.total_pages}
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={handlePageClick}
